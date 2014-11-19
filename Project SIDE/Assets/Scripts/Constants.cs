@@ -9,6 +9,7 @@ public class Constants {
 	public static string BASIC_ENEMY_TAG = "BasicEnemy";
 	public static string PLAYER_TAG = "Player";
 	public static string ATTACK_RANGE_TAG = "AttackRange";
+	public static string FROSTBALL_TAG = "FrostBall";
 
 
 }

@@ -42,7 +42,7 @@ public class FrostBall : MonoBehaviour {
 		{
 			if(!target.tag.Equals(Constants.PLAYER_TAG)&& !target.tag.Equals(Constants.ATTACK_RANGE_TAG))
 			{
-				Destroy (gameObject);
+				//Destroy (gameObject);
 			}	
 		}
 	}
