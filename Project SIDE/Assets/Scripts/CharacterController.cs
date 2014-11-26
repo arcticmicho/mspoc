@@ -51,6 +51,7 @@ public class CharacterController : MonoBehaviour {
 	private bool isGrounded()
 	{
 		bool grounded = Physics2D.OverlapArea(pointA.position,pointB.position,whatIsGround);
+		Debug.Log ("is: "+grounded);
 		anim.SetBool("Grounded",grounded);
 		return grounded;
 	}
