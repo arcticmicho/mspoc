@@ -23,14 +23,14 @@ public class BasicAI : Enemy {
 	// Update is called once per frame
 	void FixedUpdate () {
 		
-//		if (!isNear) {
-//			Vector2 start = transform.position;
-//			Vector2 end = Vector2.MoveTowards(start, (Vector2) player.transform.position, enemySpeed * Time.deltaTime);
-//			transform.position = end;
-//			
-//		}else{
-//			
-//		}
+		if (!isNear) {
+			Vector2 start = transform.position;
+			Vector2 end = Vector2.MoveTowards(start, (Vector2) player.transform.position, enemySpeed * Time.deltaTime);
+			transform.position = end;
+			
+		}else{
+			
+		}
 	
 	}
 	
