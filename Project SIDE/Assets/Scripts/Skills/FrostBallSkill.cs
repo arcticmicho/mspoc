@@ -33,6 +33,15 @@ public class FrostBallSkill : Skill {
 		CharacterController characterController = character.GetComponent<CharacterController>();
 		frostBallObject.setMovement(ballDamage,characterController.isFacingRight() ? 1:-1);
 	}
+
+	public void create (GameObject character, string enemy)
+	{
+		frostballSkill = GameObject.Instantiate(Resources.Load(Constants.PATH_TO_ENEMY_FROSTBALL)) as GameObject;
+		frostballSkill.transform.position = character.transform.localPosition;
+		FrostBall frostBallObject = frostballSkill.GetComponent<FrostBall>();
+		CharacterController characterController = character.GetComponent<CharacterController>();
+		frostBallObject.setMovement(ballDamage,characterController.isFacingRight() ? 1:-1);
+	}
 	
 	#endregion
 }

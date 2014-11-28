@@ -30,7 +30,8 @@ public class FrostBall : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D target){
-		if(target.tag.Equals(Constants.BASIC_ENEMY_TAG))
+		print (gameObject.tag + "_______________---------------------------" + Constants.PLAYER_FROSTBALL);
+		if(gameObject.tag.Equals (Constants.PLAYER_FROSTBALL) && target.tag.Equals(Constants.BASIC_ENEMY_TAG))
 		{
 			Enemy enemy = target.GetComponent<Enemy>();
 			enemy.restHP(damage);

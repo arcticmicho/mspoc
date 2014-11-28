@@ -3,10 +3,10 @@ using System.Collections;
 
 public class BallDetection : MonoBehaviour {
 
-	GameObject enemy;
+	public GameObject enemy;
 	// Use this for initialization
 	void Start () {
-		enemy = GameObject.FindGameObjectWithTag("BasicEnemy");
+
 	}
 	
 	// Update is called once per frame
