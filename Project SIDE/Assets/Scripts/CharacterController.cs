@@ -10,10 +10,11 @@ public class CharacterController : MonoBehaviour {
 	public float jumpForce = 100f;
 	public Transform pointA;
 	public Transform pointB;
+	private BasicGun basicGun;
 
 	// Use this for initialization
 	void Start () {
-	
+		basicGun = GetComponentInChildren<BasicGun>();
 	}
 
 	void FixedUpdate()
@@ -37,6 +38,16 @@ public class CharacterController : MonoBehaviour {
 		{
 			Jump();
 		}
+	}
+
+	void OnTriggerEnter2D(Collider2D collidedObject){
+		
+		if (collidedObject.transform.tag.Equals(Constants.TOOLBOX_TAG)){
+			MultiBallToolBox multiballToolBox = collidedObject.GetComponent<MultiBallToolBox>();
+			basicGun.changeGun(multiballToolBox.getGunOnObject());
+			multiballToolBox.destroyObject();
+		}
+		
 	}
 
 	private void Flip()
