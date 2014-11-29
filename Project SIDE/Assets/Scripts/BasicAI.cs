@@ -31,11 +31,11 @@ public class BasicAI : Enemy {
 		}
 	}
 
-	private bool isPlayerInLeft(){
+	public bool isPlayerInLeft(){
 		return player.transform.position.x <= this.transform.position.x;
 	}
 
-	private bool isPlayerInRight(){
+	public bool isPlayerInRight(){
 		return player.transform.position.x > this.transform.position.x;
 	}
 	
@@ -49,7 +49,7 @@ public class BasicAI : Enemy {
 			Vector2 posPlayer = player.transform.position;
 
 			if(Mathf.Abs(start.x - posPlayer.x) < distNearAttack){
-
+				print ("Near attack");
 				Vector2 end = Vector2.MoveTowards(start, (Vector2) player.transform.position, enemySpeed * Time.deltaTime);
 				transform.position = end;
 				if(facingRight){

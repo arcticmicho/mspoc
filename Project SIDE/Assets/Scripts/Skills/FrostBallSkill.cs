@@ -39,8 +39,8 @@ public class FrostBallSkill : Skill {
 		frostballSkill = GameObject.Instantiate(Resources.Load(Constants.PATH_TO_ENEMY_FROSTBALL)) as GameObject;
 		frostballSkill.transform.position = character.transform.localPosition;
 		FrostBall frostBallObject = frostballSkill.GetComponent<FrostBall>();
-		CharacterController characterController = character.GetComponent<CharacterController>();
-		frostBallObject.setMovement(ballDamage,characterController.isFacingRight() ? 1:-1);
+		BasicAI enemyController = character.GetComponent<BasicAI>();
+		frostBallObject.setMovement(ballDamage, enemyController.isPlayerInRight() ? 1:-1);
 	}
 	
 	#endregion

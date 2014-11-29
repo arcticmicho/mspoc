@@ -22,9 +22,7 @@ public class CharacterController : MonoBehaviour {
 		float direction = Input.GetAxis("Horizontal");
 		rigidbody2D.velocity = new Vector2(direction * movSpeed,rigidbody2D.velocity.y);
 		anim.SetFloat("Speed",Mathf.Abs(direction));
-		
 
-		
 		if(direction>0 && !facingRight)
 			Flip();
 		else
