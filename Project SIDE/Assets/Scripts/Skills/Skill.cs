@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public abstract class Skill {
+public abstract class Skill : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
