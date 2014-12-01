@@ -29,6 +29,12 @@ public class FrostBall : MonoBehaviour {
 		this.damage = damage;
 	}
 
+	public void setEnemyMovement(float damage, float direction)
+	{
+		rigidbody2D.velocity = new Vector2(direction * movSpeed/2,0);
+		this.damage = damage;
+	}
+
 	void OnTriggerEnter2D(Collider2D target){
 		print (gameObject.tag + "_______________---------------------------" + Constants.PLAYER_FROSTBALL);
 		if(gameObject.tag.Equals (Constants.PLAYER_FROSTBALL) && target.tag.Equals(Constants.BASIC_ENEMY_TAG))
