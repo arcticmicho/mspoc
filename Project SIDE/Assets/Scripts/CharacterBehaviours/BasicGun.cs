@@ -9,23 +9,36 @@ public class BasicGun : MonoBehaviour {
 	public GameObject character;
 	public CharacterController characterController;
 	private bool isShooting;
+
+	public double cooldDown = 0.2;
+	private double instantCoolDown;
 	// Use this for initialization
 	void Start () {
 		frostBallSkill = new FrostBallSkill();
 		multiBallSkill = new MultiBallSkill();
 		currentGun = frostBallSkill;
+		instantCoolDown = 0;
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		if(Input.GetKeyUp(KeyCode.R))
+		if(Input.GetKey(KeyCode.R))
 		{
-			currentGun.create(character);
-			isShooting = true;
-			makeShootAnimation();
+			if(instantCoolDown <= 0)
+			{
+				currentGun.create(character);
+				isShooting = true;
+				makeShootAnimation();
+				instantCoolDown = cooldDown;
+			}else{
+				instantCoolDown = instantCoolDown - Time.fixedDeltaTime;
+				Debug.Log (instantCoolDown);
+				Debug.Log (Time.fixedDeltaTime);
+			}
 		}
 		else 
 		{
+			instantCoolDown = 0;
 			isShooting = false;
 			makeIdleAnimation();
 		}
