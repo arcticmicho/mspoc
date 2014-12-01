@@ -12,6 +12,8 @@ public class CharacterController : MonoBehaviour {
 	public Transform pointB;
 	private BasicGun basicGun;
 
+	public float lifes = 2;
+
 	// Use this for initialization
 	void Start () {
 		basicGun = GetComponentInChildren<BasicGun>();
@@ -44,6 +46,14 @@ public class CharacterController : MonoBehaviour {
 			MultiBallToolBox multiballToolBox = collidedObject.GetComponent<MultiBallToolBox>();
 			basicGun.changeGun(multiballToolBox.getGunOnObject());
 			multiballToolBox.destroyObject();
+		}else if(collidedObject.gameObject.tag.Equals(Constants.ENEMY_FROSTBALL_TAG))
+		{
+			lifes--;
+			if(lifes <= 0)
+			{
+				Destroy(gameObject);
+			}
+			Destroy(collidedObject.gameObject);
 		}
 		
 	}
